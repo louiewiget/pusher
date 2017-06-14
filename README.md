@@ -1,2 +1,2 @@
-# pusher
-pusher for mac
+# xpathanay
+xpath lib for news
