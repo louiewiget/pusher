@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title></title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'><style type='text/css'>html, body {overflow-x: initial !important;}html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+<title></title><style type='text/css'>html, body {overflow-x: initial !important;}html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
 #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: auto; }
@@ -514,6 +514,6 @@ header, .context-menu, .megamenu-content, footer{
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-mac'><table><thead><tr><th style='text-align:center;' >id</th><th style='text-align:center;' >类型</th><th style='text-align:center;' >标题</th><th style='text-align:center;' >发布时间</th><th style='text-align:center;' >发布主体</th></tr></thead><tbody><tr><td style='text-align:center;' >123</td><td style='text-align:center;' >新闻</td><td style='text-align:center;' >我回家</td><td style='text-align:center;' >看到你</td><td style='text-align:center;' >怎么办</td></tr><tr><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td></tr><tr><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td><td style='text-align:center;' ></td></tr></tbody></table></div>
+<div  id='write'  class = 'is-mac'><table><thead><tr><th style='text-align:center;' >id</th><th style='text-align:center;' >类型</th><th style='text-align:center;' >标题</th><th style='text-align:center;' >发布时间</th><th style='text-align:center;' >发布主体</th></tr></thead><tbody>${mailContent}</tbody></table></div>
 </body>
 </html>

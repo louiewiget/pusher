@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title><style type='text/css'>html, body {overflow-x: initial !important;}html { font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { background-color: rgb(181, 214, 252); text-shadow: none; background-position: initial initial; background-repeat: initial initial; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: auto; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+.typora-export #write { margin: 0px auto; }
+#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+input, button, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+::before, ::after, * { box-sizing: border-box; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+a { cursor: pointer; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+pre { white-space: pre-wrap; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+.footnotes + .footnotes { margin-top: -1em; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background-color: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; background-position: initial initial; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li p, li .mathjax-block { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+@media print {
+  html, body { height: 100%; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0mm; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+.mathjax-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+.task-list { list-style-type: none; }
+.task-list-item { position: relative; padding-left: 1em; }
+.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); text-decoration: none; }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: '.'; }
+.md-tag { opacity: 0.5; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+code { text-align: left; }
+h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+a.md-print-anchor { border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background-color: transparent !important; text-shadow: initial !important; background-position: initial initial !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+
+
+@include-when-export url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/**
+ * css forked from https://github.com/GitbookIO/gitbook
+ * www.gitbook.com
+ * Apache License
+ * https://github.com/GitbookIO/gitbook/blob/master/LICENSE
+ **/
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'),url('file:///Users/liuguodong01/Library/Application%20Support/abnerworks.Typora/themes/github/400.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Open Sans Italic'),url('file:///Users/liuguodong01/Library/Application%20Support/abnerworks.Typora/themes/github/400i.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Open Sans Bold'),url('file:///Users/liuguodong01/Library/Application%20Support/abnerworks.Typora/themes/github/700.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Open Sans Bold Italic'),url('file:///Users/liuguodong01/Library/Application%20Support/abnerworks.Typora/themes/github/700i.woff') format('woff')
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write{
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 20px 30px 40px 30px;
+	padding-top: 20px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+body > *:first-child {
+    margin-top: 0 !important;
+}
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    /*background: url("file:///Users/liuguodong01/Library/Application%20Support/images/modules/styleguide/para.png") no-repeat 10px center;*/
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+    border-bottom: 1px solid #ddd;
+}
+
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dddddd;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid #ddd;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 0.2em 1em;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+.task-list{
+	padding-left: 0;
+}
+
+.task-list-item {
+	padding-left:32px;
+}
+
+.task-list-item input {
+  top: 3px;
+  left: 8px;
+}
+
+@media screen and (min-width: 914px) {
+    /*body {
+        width: 854px;
+        margin: 0 auto;
+    }*/
+}
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag{
+	color: inherit;
+}
+
+.md-toc {
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><table><thead><tr><th style='text-align:center;' >id</th><th style='text-align:center;' >类型</th><th style='text-align:center;' >标题</th><th style='text-align:center;' >发布时间</th><th style='text-align:center;' >发布主体</th></tr></thead><tbody><tr><td style=text-align:center;>1</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度因医疗丑闻撞上天花板，这是它十几年积聚问题的爆发</td><td style=text-align:center>2017-01-25 08:40:00</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>2</td><td style=text-align:center;>新闻</td><td style=text-align:center; >讯飞输入法起诉百度，索赔100万元</td><td style=text-align:center>2017-01-25 10:53:24</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>5</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度是虚假诈骗网站的推广者，我就看看漫画发现广告，点进去笑死我了，苹果7p 1399 最重要那网站applen，那些客服很敬业，我一直在逗客服?，聊了2小时之后他告诉我她是男的，只是寒假打工[微笑]，不知道卖的什么产品，就对着原本的那套文字复制就行。所以这虚假推广的锅百度应该背。</td><td style=text-align:center>2017-01-19 22:25:15</td><td style=text-align:center;>天祈雨墨</td></tr><tr><td style=text-align:center;>7</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#滨州身边事#【滨州一位姑娘百度搜索医院做人流被莆田系医院忽悠】一位不愿透露姓名的滨州姑娘私信本博称，她在网上百度做人工流产医院，看到滨城玛丽亚医院的推广，遂去该医院做手术，结果被忽悠几千元，后来该姑娘越想越愤怒，泼油漆的心都有！哎～新的一年再提醒女性朋友：请远离莆田系... </td><td style=text-align:center>2017-01-25 16:35:07</td><td style=text-align:center;>滨州情报局长</td></tr><tr><td style=text-align:center;>8</td><td style=text-align:center;>新闻</td><td style=text-align:center; >广告感动，百度艹你妈，替魏则西艹你妈李彦宏！</td><td style=text-align:center>2017-01-26 20:58:37</td><td style=text-align:center;>小麦1987</td></tr><tr><td style=text-align:center;>16</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#百度推广##魏则西事件##魏则西百度推广事件# 且不说这件悲剧背后百度 应该承担多少责任，单单恶性竞价推广这个罪名就够挖它祖坟十次了。就我亲身经历举例说明一下，我当初手机丢了以后万般无奈之下百度搜索办法，全都是什么全球手机定位，说的有板有眼，而且还是加v认证的广告，后来的结果就是头脑 </td><td style=text-align:center>2017-02-03 07:38:06</td><td style=text-align:center;>小智最爱皮卡丘</td></tr><tr><td style=text-align:center;>20</td><td style=text-align:center;>新闻</td><td style=text-align:center; >连云港徐福酒厂百度推广虚假广告，令消费者震惊
+
+2016-11-23  辽河鱼2014  + 关注献花(0)
+
+转藏
+
+11月22日，连云港徐福酒厂当地网友爆料，直言徐福酒厂利用百度对企业产品进行推广宣传，看了贴文感觉很是震惊，这难道是百度公司在帮助进行推广宣传？一个魏则西还不够？仔细看完贴文后才知道，只是徐福 </td><td style=text-align:center>2017-01-28 17:24:59</td><td style=text-align:center;>光明正大陆军2014</td></tr><tr><td style=text-align:center;>21</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度广告“害死”21岁大学生，我们身边的骗子医院都长啥样？-新闻频道-手机搜狐 @手机搜狐 http://t.cn/Rx9MjPS </td><td style=text-align:center>2017-01-28 09:34:48</td><td style=text-align:center;>转角那刹</td></tr><tr><td style=text-align:center;>22</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#百度推广##魏则西事件##魏则西百度推广事件# 且不说这件悲剧背后百度 应该承担多少责任，单单恶性竞价推广这个罪名就够挖它祖坟十次了。就我亲身经历举例说明一下，我当初手机丢了以后万般无奈之下百度搜索办法，全都是什么全球手机定位，说的有板有眼，而且还是加v认证的广告，后来的结果就是头脑 </td><td style=text-align:center>2017-01-27 12:41:03</td><td style=text-align:center;>TinyShrimp</td></tr><tr><td style=text-align:center;>26</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#百度推广##魏则西事件##魏则西百度推广事件# 且不说这件悲剧背后百度 应该承担多少责任，单单恶性竞价推广这个罪名就够挖它祖坟十次了。就我亲身经历举例说明一下，我当初手机丢了以后万般无奈之下百度搜索办法，全都是什么全球手机定位，说的有板有眼，而且还是加v认证的广告，后来的结果就是头脑 </td><td style=text-align:center>2017-01-27 07:13:03</td><td style=text-align:center;>桃园煮酒论借钱</td></tr><tr><td style=text-align:center;>27</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《长沙送子鸟医院被曝过期注射液事件医生求患者“放他们一马》摘要：1月10日，一名为“蔡晓妖姬”的网友发帖爆料，其怀孕后百度上查询信息的时候，看到了长沙送子鸟医院的广告，在准备注射“奥硝唑氯化http://t.cn/RxWtFL6 </td><td style=text-align:center>2017-01-29 14:02:10</td><td style=text-align:center;>惩腐倡廉315</td></tr><tr><td style=text-align:center;>30</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度 你这又臭又长的广告做的我也是醉了！！！就是想查个医院网址，结果就给了我一堆假结果。。。 </td><td style=text-align:center>2017-02-05 20:10:04</td><td style=text-align:center;>jemand</td></tr><tr><td style=text-align:center;>34</td><td style=text-align:center;>新闻</td><td style=text-align:center; >无耻媒体的推广功不可没！放火、防盗、防百度！ http://t.cn/RJhSn8K //@布浆哥哥:我也是才认识到被诈骗了！总以为自己很聪明，不会被别人骗的，骗子们真是让人防不胜防！这些社会的垃圾，公开抢劫老百姓的财富，坚决支持国家清理整顿非法交易平台！</td><td style=text-align:center>2017-02-05 17:55:59</td><td style=text-align:center;>围剿恒信贵金属黑平台</td></tr><tr><td style=text-align:center;>38</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度推广，竞价里面还有这样害人害己的诱惑广告！ </td><td style=text-align:center>2017-02-11 10:00:29</td><td style=text-align:center;>山东徐恩云</td></tr><tr><td style=text-align:center;>40</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【比起隐私！315晚会更应该曝光百度推广】百度这次终于在315晚会里露脸了！央视曝光了手机预装软件存在窃取隐私等问题。但百度的原罪在于其竞价排名，套用上海医师戚广崇的话:“百度最大的罪恶是虚假医疗广告，几乎所有的疾病搜索前面都是无良民营医院的广告！让不明真相的患者上当受骗！” </td><td style=text-align:center>2017-02-14 11:05:24</td><td style=text-align:center;>国内时尚语录</td></tr><tr><td style=text-align:center;>42</td><td style=text-align:center;>新闻</td><td style=text-align:center; >莆田系再次霸屏百度首页[二哈]首先推广本地莆田系[黑线]@温州草根新闻 @百度 @央视新闻 </td><td style=text-align:center>2017-02-14 15:18:27</td><td style=text-align:center;>古兰经是什么j</td></tr><tr><td style=text-align:center;>45</td><td style=text-align:center;>新闻</td><td style=text-align:center; >致百度钱包公开信：贵司与广州某培训机构涉嫌网络广告诱导消费并提供助学贷款，但该机构与实际与百度广告宣传相距甚远，并拒不改善。给本人造成巨大经济损失。故无法支付余下助学贷款。因为贵司既是宣传方，又是贷款方。所以有责任敦促该培训机构妥善处理此事。
+特此申明 </td><td style=text-align:center>2017-02-15 09:52:26</td><td style=text-align:center;>用户5711755959</td></tr><tr><td style=text-align:center;>47</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度直接弹黄色网站广告！</td><td style=text-align:center>2017-02-15 14:40:42</td><td style=text-align:center;>已彻底戒烟</td></tr><tr><td style=text-align:center;>51</td><td style=text-align:center;>新闻</td><td style=text-align:center; >想查一下血糖高能吃什么，结果百度的前三条全是广告。幸亏智商低，不然又上当了。 </td><td style=text-align:center>2017-02-16 08:37:55</td><td style=text-align:center;>YDSD袁洋</td></tr><tr><td style=text-align:center;>52</td><td style=text-align:center;>新闻</td><td style=text-align:center; >[酷] 【百度连残疾人都不放过】近日前中国盲人在线网站站长杨永全发微博谴责百度的流氓推广行为。他表示电脑中的百度输入法静默下载、安装了百度卫士，使得电脑一度陷入瘫痪，被捆绑安装的百度卫士无法卸载，直接导致工作会议被迫延迟。微博上众多网友反馈此问题http://t.cn/RUk8lhS </td><td style=text-align:center>2017-02-15 20:44:46</td><td style=text-align:center;>壮昱郁b</td></tr><tr><td style=text-align:center;>53</td><td style=text-align:center;>新闻</td><td style=text-align:center; >对早就被央视等各大媒体多次曝光的香港恒信贵金属黑平台，为何百度还勾结该骗子合谋来诱骗大陆投资者？除了百度搜索，还有百度推广、百科、文库、经验、口碑、知道、贴吧等等，无处不充斥着该黑平台的虚假广告，这怎么说？无非就是「竞价搜索推广，百度和诈骗犯站在一起」的写照。 我分享了 </td><td style=text-align:center>2017-02-15 20:33:32</td><td style=text-align:center;>围剿恒信贵金属黑平台</td></tr><tr><td style=text-align:center;>56</td><td style=text-align:center;>新闻</td><td style=text-align:center; >其实＂百度＂推广也是＂罪恶＂之源，什么＂xx紫砂官网＂、紫砂x家＂……他们一年推广费惊人，实际上羊毛出在羊身上，这些网店的推广费肯定是消费者来埋单，这是无庸置疑的。</td><td style=text-align:center>2017-02-16 11:28:49</td><td style=text-align:center;>张明强-紫砂壶收藏顾问</td></tr><tr><td style=text-align:center;>60</td><td style=text-align:center;>新闻</td><td style=text-align:center; >慧聪网推广效果极差，极度标王词根本在百度搜索上没显示，投的钱打水漂了，被骗了，怎么维权？_百度知道 http://t.cn/RJjn9Gb </td><td style=text-align:center>2017-02-16 12:33:00</td><td style=text-align:center;>危平易倾</td></tr><tr><td style=text-align:center;>61</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《重庆市某教师被骗近20万　　百度，你推荐、推广什么？》重庆市某教师10天内被3家网络投资平台诈骗近20万元，分别是“深圳市平安创新资本投资有限公司hhttp://t.cn/RJYQFjn </td><td style=text-align:center>2017-02-16 18:20:22</td><td style=text-align:center;>牛儿15268</td></tr><tr><td style=text-align:center;>65</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度推广 这些卖药的全部都是违禁词，为什么还可以进行推广？马上315了，不处理的话就投诉了 </td><td style=text-align:center>2017-02-20 17:51:34</td><td style=text-align:center;>定安之若素</td></tr><tr><td style=text-align:center;>66</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度 太过分了吧，假的官网都能上推广！稍不注意就打了电话过去，还好没有留家里住址！！！这样不负责任的行为，真是越来越不靠谱！百度呵呵 </td><td style=text-align:center>2017-02-20 18:59:15</td><td style=text-align:center;>打喷嚏的阿花</td></tr><tr><td style=text-align:center;>74</td><td style=text-align:center;>新闻</td><td style=text-align:center; >“百度一下”，差点害了我的狗狗！</td><td style=text-align:center>2017-02-26 10:01:00</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>75</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度真是醉了 我搜月嫂 出来的全是广告 </td><td style=text-align:center>2017-02-27 12:22:54</td><td style=text-align:center;>猫个球</td></tr><tr><td style=text-align:center;>78</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《北京华大肾安医院是骗人的私人医院，大家千万不要去》怎么#魏则西事件#之后这家北京肾安医院就没有上百度推广了？？那是一家骗人的私人医院，大家千万不要去！！！　　去年我爸爸查出来是肾病，刚开始http://t.cn/RibQNYV </td><td style=text-align:center>2017-02-27 10:04:17</td><td style=text-align:center;>p7骗漏爸堡策</td></tr><tr><td style=text-align:center;>79</td><td style=text-align:center;>新闻</td><td style=text-align:center; >http://t.cn/Rit771y 空鼻症没有上教材和疾病目录，但名气太大，人数太多，罕见病也没法接纳。
+这批人怎么办？何去何从呢？没有身份！
+今天是世界罕见病日，被百度虚假医疗广告所害的空鼻症患者却只能在百度门外徘徊，因为，百度没有履行承诺，第六轮谈判没有时间点，空鼻症代表只能在百度门外等待…… </td><td style=text-align:center>2017-02-28 10:27:01</td><td style=text-align:center;>四边形木丁西</td></tr><tr><td style=text-align:center;>82</td><td style=text-align:center;>新闻</td><td style=text-align:center; >//@四边形木丁西:不知道怎么回事？微博版发出来就打不开了。 只有图片发送！ 今天是世界罕见病日，被百度虚假医疗广告所害的空鼻症患者却只能在百度门外徘徊，因为，百度没有履行承诺，第六轮谈判没有时间点，空鼻症代表只能在百度门外等待…… </td><td style=text-align:center>2017-02-28 11:24:08</td><td style=text-align:center;>EUGDYJF</td></tr><tr><td style=text-align:center;>90</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#韩国部署萨德# 百度的广告也太不要脸了 这时候还推乐天！@百度 @互联网的那点事 </td><td style=text-align:center>2017-03-02 12:09:07</td><td style=text-align:center;>小张同学爱照相</td></tr><tr><td style=text-align:center;>95</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度推广小度 @12315消费维权 @12315网络维权 @12315网上投诉维权 @12315消费者维权 @12315消费者维权投诉  我就想问问当时我的浏览器客户端并没有登录我的百度账户怎么申请保障，你们害死了一个魏泽西还不够吗？你们的广告没有审核吗？</td><td style=text-align:center>2017-03-02 13:18:13</td><td style=text-align:center;>那些年我们用绳命扯的淡</td></tr><tr><td style=text-align:center;>100</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度竟然公然推广走私车广告。 </td><td style=text-align:center>2017-03-06 07:07:57</td><td style=text-align:center;>她不会知道</td></tr><tr><td style=text-align:center;>112</td><td style=text-align:center;>新闻</td><td style=text-align:center; >“百度医生”关闭 下月产品正式关停并清空数据</td><td style=text-align:center>2017-03-06 09:40:25</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>114</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度旗下网站暗藏恶意代码事件再发酵 百度承认存在问题</td><td style=text-align:center>2017-03-05 07:55:30</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>123</td><td style=text-align:center;>新闻</td><td style=text-align:center; >我不是记得之前魏则西事件后，百度搜索广告位不超过30%，不超过4条么？朋友孩子烫伤想找个专业医院，搜小孩烫伤全都是广告，欺骗的都是心急如焚的父母？李彦宏孩子烫伤也会去这些医院吗？@头条新闻  @央视新闻 @新浪新闻 @中国新闻周刊 @每日经济新闻 @澎湃新闻 @网易新闻客户端 @凤凰新闻客户端  </td><td style=text-align:center>2017-03-08 15:50:45</td><td style=text-align:center;>record_wu_508</td></tr><tr><td style=text-align:center;>126</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度推广 这些框架户什么时候能处理呢？这些卖完的要不要这么嚣张？哪里都是，违禁词那么多，希望赶紧查清楚，处理掉，别让315曝光出来好嘛！！！再不处理就投诉了@百度推广 </td><td style=text-align:center>2017-03-08 17:29:02</td><td style=text-align:center;>定安之若素</td></tr><tr><td style=text-align:center;>132</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《云端联盟-打了钱给他们，给了个假的扣费平台。纯属骗人。》我是在百度搜索找到南京云桥信息科技有限公司的，前期咨询他能否投放腾讯视频15秒的广告，他那边说可以投，并给了我报价，在谈妥如何投放之http://t.cn/RilnnXA </td><td style=text-align:center>2017-03-09 07:42:20</td><td style=text-align:center;>钻石王老六来了</td></tr><tr><td style=text-align:center;>141</td><td style=text-align:center;>新闻</td><td style=text-align:center; >魏则西百度推广事件谁以后再敢说有问题找度娘 我特么就是你干爹。    </td><td style=text-align:center>2017-03-09 11:31:03</td><td style=text-align:center;>向小波9</td></tr><tr><td style=text-align:center;>142</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#废柴的日常#下载一个软件，捆绑这么多广告，真是的，百度赚了多少黑心钱。 </td><td style=text-align:center>2017-03-09 11:07:43</td><td style=text-align:center;>团子life</td></tr><tr><td style=text-align:center;>143</td><td style=text-align:center;>新闻</td><td style=text-align:center; >我就从来不用hao123，一直觉得是流氓网站，还真是，爸妈用浏览器的时候一个不小心hao123就绑定成浏览器首页了，还在钓鱼网站上投广告，这种行为，绝对不是什么值得信任的产品，所以坚决不用，也不信是外包的@hao123 『百度承认hao123暗藏恶意代码_手机新浪网』http://t.cn/Riiwybm </td><td style=text-align:center>2017-03-09 11:50:11</td><td style=text-align:center;>浩浩爱地球</td></tr><tr><td style=text-align:center;>150</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#315金融曝光台# #光大诈骗1.38亿# #线索征集# 此次诈骗事件中：百度，迅雷，券妈妈等相关推广平台也负有不可推卸责任，这些平台极力推广国资系光大p2p金融，老百姓也是相信并且冲着“光大”去投资的，最终投资者蒙受了巨大的经济上及精神上的损失。所以光大集团及为其推广的相关平台都需承担责任！</td><td style=text-align:center>2017-03-09 11:13:07</td><td style=text-align:center;>光大诈骗2亿</td></tr><tr><td style=text-align:center;>156</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度 有人冒充我公司进行虚假百度竞价推广，欺骗客户。。。百度 还不支持举报，怎么办？ </td><td style=text-align:center>2017-03-09 13:42:25</td><td style=text-align:center;>老张看盘188</td></tr><tr><td style=text-align:center;>160</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度、搜狗发布虚假广告被处罚】Bianews报道 3月9日消息，今日上海市工商局公布2017年第1号虚假违法广告公告。作为互联网付费搜索广告的发布者，未能有效履行法定义务，百度在线网络技术（北京）有限公司上海软件技术分公司和北京搜狗信息服务有限公司被处罚。http://t.cn/Rij1Uqd </td><td style=text-align:center>2017-03-09 16:57:06</td><td style=text-align:center;>鞭牛士</td></tr><tr><td style=text-align:center;>161</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度、搜狗未尽广告发布法律义务被处罚】（原标题：百度、搜狗未尽广告发布法律义务被处罚） 9日，上海市工商局公布2017年第1号虚假违法广告公告。http://t.cn/RijEBAp </td><td style=text-align:center>2017-03-09 16:33:05</td><td style=text-align:center;>社会日日谈_水之</td></tr><tr><td style=text-align:center;>162</td><td style=text-align:center;>新闻</td><td style=text-align:center; >9日，上海市工商局公布2017年第1号虚假违法广告公告。百度、搜狗作为互联网付费搜索广告的发布者，未能有效履行法定义务，被处罚。[围观][good] http://t.cn/RijmNDV </td><td style=text-align:center>2017-03-09 16:37:56</td><td style=text-align:center;>一财梧桐树下</td></tr><tr><td style=text-align:center;>163</td><td style=text-align:center;>新闻</td><td style=text-align:center; >如此处罚？！！确定不是专门来搞笑的吗？？？[衰][衰][衰][衰] —— 上海市工商局公布公告，作为互联网付费搜索广告的发布者，未能有效履行法定义务，百度发布未经审查的医疗机构广告被罚款2.8万元；搜狗明知广告虚假仍然发布，被罚款1.03万元。</td><td style=text-align:center>2017-03-09 16:50:53</td><td style=text-align:center;>我爱足球我爱世界杯</td></tr><tr><td style=text-align:center;>165</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度发布未审查广告被罚 案涉无资质医疗服务】上海工商局公布2017年第1号虚假违法广告公告。百度未能履行法定义务，发布了未经审查的医疗机构广告，并且关键词指向不具备资质的医疗服务内容，被依法处罚款2.8万元。此外，搜狗明知、应知广告虚假仍然发布，被罚1.03万元。http://t.cn/RijDUKl </td><td style=text-align:center>2017-03-09 17:47:13</td><td style=text-align:center;>环球市场播报</td></tr><tr><td style=text-align:center;>174</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【2016年网上交易保障十大新闻事件点评】4、百度医疗丑闻频发，国家加强互联网广告监管。
+整个2016年，百度的丑闻都围绕着医疗展开。从年初的卖血友病吧到年中五月的“魏则西”事件，这些事件直接导致了百度收入暴跌、广告业务被监管。9月，《互联网广告管理暂行办法》正式实施。搜索引擎、微信微博自 </td><td style=text-align:center>2017-03-10 09:21:34</td><td style=text-align:center;>网络315警示</td></tr><tr><td style=text-align:center;>179</td><td style=text-align:center;>新闻</td><td style=text-align:center; >这也叫罚款了？反正这么点我他妈都能出得起这叫罚款？去他妈的//@顾扯淡: 据摩根大通的报告估算，医疗相关广告在百度的年总营收中约占25%。以百度2015年销售额663亿元的业绩核算，医疗广告为百度的收入贡献超过150亿//@殆知阁://@灵感之源: 这就是为什么那么多受害，犯罪 成本太低。。</td><td style=text-align:center>2017-03-10 10:55:31</td><td style=text-align:center;>不混出人样不换名</td></tr><tr><td style=text-align:center;>184</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度回应违规医疗广告被罚:未了解到上海具体规定_网易科技 （分享自 @网易科技频道）  百度，是最没有社会公德的一家企业，最无耻的一家企业。 http://t.cn/RiTC7bX </td><td style=text-align:center>2017-03-10 12:38:56</td><td style=text-align:center;>铁血轩辕</td></tr><tr><td style=text-align:center;>185</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度真TM的不要脸，发布医疗广告的法律法规难道是上海制定的吗？！发布违规医疗广告，难道百度不审查他们的资质？！</td><td style=text-align:center>2017-03-10 12:00:22</td><td style=text-align:center;>稀里哗啦东扯西拉</td></tr><tr><td style=text-align:center;>205</td><td style=text-align:center;>新闻</td><td style=text-align:center; >新华社上海3月9日电（记者周琳）9日，上海市工商局公布2017年第1号虚假违法广告公告。记者获悉，作为互联网付费搜索广告的发布者，未能有效履行法定义务，百度在线网络技术（北京）有限公司上海软件技术分公司（以下简称为“百度平台”）和北京搜狗信息服务有限公司（以下简称为“搜狗平台”）被处罚。 </td><td style=text-align:center>2017-03-10 15:57:06</td><td style=text-align:center;>浦口普法</td></tr><tr><td style=text-align:center;>206</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度回应发布违规医疗广告被罚：未了解到上海具体规定】上海市工商局2017年第1号虚假违法广告公告，百度因发布未经审查医疗机构广告，并且相关搜索关键词指向了无资质医疗服务内容，被依法处罚款2.8万元。百度：因各地监管要求并不统一，不了解上海地区具体规定，导致这几家医疗机构广告上线发布。 </td><td style=text-align:center>2017-03-10 16:45:48</td><td style=text-align:center;>唐山大概齐</td></tr><tr><td style=text-align:center;>228</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#315晚会# 说到极藻5s，百度怎么解释@CCTV315 @百度 今年交了多少保护费[拜拜] </td><td style=text-align:center>2017-03-15 23:42:05</td><td style=text-align:center;>_Smile_天空</td></tr><tr><td style=text-align:center;>232</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度你特么在逗我？？？说，给了你们多少广告费，真是只要给钱什么都能发布啊~~~[弱][弱][弱]@百度 @百度新闻 </td><td style=text-align:center>2017-03-20 09:35:30</td><td style=text-align:center;>vincent赵</td></tr><tr><td style=text-align:center;>236</td><td style=text-align:center;>新闻</td><td style=text-align:center; >警惕！女子网上搜到订机票电话 陷入“连环圈套”被骗2万多元，提醒：在百度各大搜素引擎搜素各种信息，更大部分都是假信息，有些还是搜索公司知道假也帮忙推广告，买票一定要看清楚，最好找熟悉的售票网站购买，以免受骗。 http://t.cn/R6ZTjoq </td><td style=text-align:center>2017-03-20 11:44:41</td><td style=text-align:center;>潮州突发</td></tr><tr><td style=text-align:center;>249</td><td style=text-align:center;>新闻</td><td style=text-align:center; >现在终于了明白为什么像元典科技（爱漫电商）这些在百度推广的骗子公司，在百度口碑都不能差评，因为他们的利益是捆绑在一起的，损了他们的声誉，也是折了自己的财路，只有骗子们骗得越多，他们之间的财源也就源远流长。 </td><td style=text-align:center>2017-03-20 12:35:03</td><td style=text-align:center;>用户6175955183</td></tr><tr><td style=text-align:center;>257</td><td style=text-align:center;>新闻</td><td style=text-align:center; >???百度竞价排名短词热词想做几个做几个，无任何流氓费用，百度首页保证前三位，一搜就有你???，商机就在你眼前，抓紧时间来抢占广告位吧??? http://t.cn/R2WxEa8 </td><td style=text-align:center>2017-03-21 09:22:37</td><td style=text-align:center;>美仙传媒百度_程程麻麻</td></tr><tr><td style=text-align:center;>258</td><td style=text-align:center;>新闻</td><td style=text-align:center; >在电脑上搜“飞塔”，反正有好几个做百度广告的都是卖其他家防火墙的，都不要脸。//@ElleryCen:你们去搜搜飞塔看看排在第一的是哪家不要脸的[挖鼻] //@网路游侠:[哼][怒]//@zeroflag:曾经搜索”迪普科技“还会弹出”深信服负载均衡“的广告呢！[泪][泪][泪]</td><td style=text-align:center>2017-03-21 09:28:55</td><td style=text-align:center;>网路游侠</td></tr><tr><td style=text-align:center;>261</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@网络315警示 @微博315 //@寥城贪官多:@百度新闻 @百度 退换都不可以请问下百度这是什么商家给了你们多少广告费用//@寥城贪官多:顶起来让更多的人看到@CCTV焦点访谈 @CCTV1开讲啦 @人民日报 @崔永元 @CCTV今日说法 @人民日报 @陈里 @曹景行 @电台高莉</td><td style=text-align:center>2017-03-21 08:32:06</td><td style=text-align:center;>寥城贪官多</td></tr><tr><td style=text-align:center;>262</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度“强装”安全软件引争议】最近，好多网友反映自己在不知情的情况下，电脑被强装百度安全软件，即使卸载了还能自动重生。业内人士表示，恶意推广软件的形式时常被一些企业作为提高产品普及率的歪招。保护电脑的安全软件也通过“流氓推广”的形式安装，实在是令人气愤http://t.cn/RZy1Usm </td><td style=text-align:center>2017-03-21 10:52:52</td><td style=text-align:center;>月徽东大</td></tr><tr><td style=text-align:center;>263</td><td style=text-align:center;>新闻</td><td style=text-align:center; >魏则西百度推广事件谁以后再敢说有问题找度娘 我特么就是你干爹。    </td><td style=text-align:center>2017-03-21 10:51:03</td><td style=text-align:center;>emmaBBBBBB加油6</td></tr><tr><td style=text-align:center;>265</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度推广小度 //@寥城贪官多:百度这家网商骗人刚收到都不给退货货不对版 http://t.cn/R6yeeqQ</td><td style=text-align:center>2017-03-21 09:14:50</td><td style=text-align:center;>寥城贪官多</td></tr><tr><td style=text-align:center;>266</td><td style=text-align:center;>新闻</td><td style=text-align:center; >怎么没人管啊他们很猖狂 http://t.cn/R6ysEtL //@寥城贪官多:@百度推广小度 望有关部门管下/@百度推广小度 //@网络315警示 @百度 @百度新闻 @人民日报 @寥城贪官多:百度这家网商骗人刚收到都不给退货货不对版 http://t.cn/R6yeeqQ</td><td style=text-align:center>2017-03-21 09:45:05</td><td style=text-align:center;>寥城贪官多</td></tr><tr><td style=text-align:center;>267</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#光大诈骗1.38亿#君享金融这个典型全民诈骗案，在迅雷百度和光大的支持下，迅雷推广送会员，百度加V包认证，光大做其后盾，紧密结合，环环相扣，就是为了骗老百姓的钱，加剧社会矛盾，引起公众对国家的不满@杭州发布 @联合国 @迅雷客服 @迅雷会员 @百度 @百度推广 @国际金融报 @早报网 @CCTV焦点访谈</td><td style=text-align:center>2017-03-21 10:15:37</td><td style=text-align:center;>用户6115364622</td></tr><tr><td style=text-align:center;>268</td><td style=text-align:center;>新闻</td><td style=text-align:center; >君享金融这个典型全民诈骗案，在迅雷百度和光大的支持下，迅雷推广送会员，百度加V包认证，光大做其后盾，紧密结合，环环相扣，就是为了骗老百姓的钱，为了加剧社会矛盾，引起公众对国家的不满@杭州发布 @法国驻华使馆 @美国驻华大使馆 @联合国 @迅雷客服 @迅雷会员 @百度 @百度推广 </td><td style=text-align:center>2017-03-21 09:27:13</td><td style=text-align:center;>烟火6120487469</td></tr><tr><td style=text-align:center;>273</td><td style=text-align:center;>新闻</td><td style=text-align:center; >???百度竞价排名短词热词想做几个做几个，无任何流氓费用，百度首页保证前三位，一搜就有你???，???商机就在你眼前，抓紧时间来抢占广告位吧??? </td><td style=text-align:center>2017-03-21 12:03:20</td><td style=text-align:center;>格律传媒网络推广</td></tr><tr><td style=text-align:center;>277</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《深扒银川博爱医院医疗黑幕：莆田系黑医院专靠广告坑骗患者》深扒银川博爱医院医疗黑幕：莆田系黑医院专靠广告坑骗患者(2017-03-1804:04:07)有个给我报料的大学生德了男科病从百度骗http://t.cn/R6UMaCT </td><td style=text-align:center>2017-03-21 12:29:03</td><td style=text-align:center;>舆情即时</td></tr><tr><td style=text-align:center;>286</td><td style=text-align:center;>新闻</td><td style=text-align:center; >揭开广济医院欺骗患者救命钱的大面纱采用什么经络消瘤法欺骗患者事实如下:2016年12月10号住进广济中西结合医院，他们医院治疗方法以百度推广骗去受害者家属救命钱，以治疗手段为中药泡澡，刮痧，按摩，骗去患者，广济中西结合医院承诺百分之九十能治愈，缩小肿瘤，而且没有缩小反而长大17公分，从哪医 </td><td style=text-align:center>2017-03-21 14:03:32</td><td style=text-align:center;>王宁82206</td></tr><tr><td style=text-align:center;>287</td><td style=text-align:center;>新闻</td><td style=text-align:center; >#北京事儿# 揭开广济医院欺骗患者救命钱的大面纱采用什么经络消瘤法欺骗患者事实如下:2016年12月10号住进广济中西结合医院，他们医院治疗方法以百度推广骗去受害者家属救命钱，以治疗手段为中药泡澡，刮痧，按摩，骗去患者，广济中西结合医院承诺百分之九十能治愈，缩小肿瘤，而且没有缩小反而长大17公 </td><td style=text-align:center>2017-03-21 14:08:39</td><td style=text-align:center;>王宁82206</td></tr><tr><td style=text-align:center;>292</td><td style=text-align:center;>新闻</td><td style=text-align:center; >没毛病啊，百毒从来都是这样无节操。//@网路游侠: 在电脑上搜“飞塔”，反正有好几个做百度广告的都是卖其他家防火墙的，都不要脸。//@ElleryCen:你们去搜搜飞塔看看排在第一的是哪家不要脸的[挖鼻] //@网路游侠:[哼][怒]//@zeroflag:曾经搜索”迪普科技“还会弹出”深信服负载均衡“的广告呢！</td><td style=text-align:center>2017-03-21 17:38:54</td><td style=text-align:center;>CC开发网</td></tr><tr><td style=text-align:center;>302</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@王宁82206: #北京事儿# 揭开广济医院欺骗患者救命钱的大面纱采用什么经络消瘤法欺骗患者事实如下:2016年12月10号住进广济中西结合医院，他们医院治疗方法以百度推广骗去受害者家属救命钱，以治疗手段为中药泡澡，刮痧，按摩，骗去患者，广济中西结合医院承诺百分之九十能治愈，缩小肿瘤，而且没有缩小 </td><td style=text-align:center>2017-03-22 08:25:40</td><td style=text-align:center;>王宁82206</td></tr><tr><td style=text-align:center;>312</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【百度“强装”安全软件引争议】最近，好多网友反映自己在不知情的情况下，电脑被强装百度安全软件，即使卸载了还能自动重生。业内人士表示，恶意推广软件的形式时常被一些企业作为提高产品普及率的歪招。保护电脑的安全软件也通过“流氓推广”的形式安装，实在是令人气愤http://t.cn/RZy1Usm </td><td style=text-align:center>2017-03-22 12:04:33</td><td style=text-align:center;>坏娃娃日记希山炳</td></tr><tr><td style=text-align:center;>327</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@百度 看看这就是你们推广的游戏@//@豫风书画:@315在线投诉 究竟谁来维护我们这些玩家的利益，谁能治理这些黑心公司@網易 @//@豫风书画:投诉无门，离线挂机被整红名，半夜三更的还能被杀挂机，一堆托，一个盟的人霸占全服boss@小呀小布林 @手游君 @37互娱</td><td style=text-align:center>2017-03-22 14:01:50</td><td style=text-align:center;>豫风书画</td></tr><tr><td style=text-align:center;>347</td><td style=text-align:center;>新闻</td><td style=text-align:center; >没想到百度的推广骗局就在我身上发生了。@万和热水器 骗子电话:4000080911（一下一切事情都是在我不知情的情况下发生的）早几天热水器坏了，我妈自己百度@百度 搜索的万和热水器，然后百度第一条就给了这个电话，还明目张胆的标注为厂家总部。我妈就信了，之后就来一个修热水器的，换了一个零件，收了5 </td><td style=text-align:center>2017-03-23 12:58:53</td><td style=text-align:center;>土澳砖主</td></tr><tr><td style=text-align:center;>366</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《深扒银川博爱医院医疗黑幕：莆田系黑医院专靠广告坑骗患者》有个给我报料的大学生德了男科病从百度骗子那里来到莆田银川博爱骗子医院，胡治乱治钱还给骗了3万多，一个青春期的男孩给自己把网名改成了“http://t.cn/R6cJ3SE </td><td style=text-align:center>2017-03-24 10:10:36</td><td style=text-align:center;>-老杨-</td></tr><tr><td style=text-align:center;>378</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【魏则西事件一周年：父母等待道歉 试管婴儿失败】人性最大的恶是什么？”作为去年最受关注的公共事件之一，青年魏则西之死暴露出百度广告竞价排名、部队医院科室外包给“莆田系”，以及虚假医疗广告等问题。在失去儿子的这一年当中，魏则西父母一直没有等到百度等相关方道歉，他们为此与之对薄公堂； </td><td style=text-align:center>2017-03-28 09:22:11</td><td style=text-align:center;>搜狐新闻</td></tr><tr><td style=text-align:center;>381</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《南京脑康医院又是一家骗子医院》南京脑康医院又是一家被福建莆田人承包的私人医院，开设四五个网站在百度竞价宣传，各大媒体发布虚假广告信息，骗人的手段层出不穷，到处承包部队医院骗人，不要上当http://t.cn/R6opTdQ </td><td style=text-align:center>2017-03-29 08:53:27</td><td style=text-align:center;>好纸张小王风</td></tr><tr><td style=text-align:center;>383</td><td style=text-align:center;>新闻</td><td style=text-align:center; >又是百度虚假医疗广告与莆田系害人的惨案！★为什么没人制裁百度李彥宏？制裁莆田系黑医疗？★为什么耳鼻喉科明知道手术导致20%以上的人成为空鼻症，却不禁止手术？不提示风险？★为什么空鼻症还不上教材和疾病目录？★为什么说切除鼻甲没事的耳鼻喉科专家，自己不切除鼻甲试试呢？究竟谁在作恶？</td><td style=text-align:center>2017-03-28 23:41:01</td><td style=text-align:center;>空鼻症大神</td></tr><tr><td style=text-align:center;>384</td><td style=text-align:center;>新闻</td><td style=text-align:center; >//@四边形木丁西:又是百度虚假医疗广告与莆田系害人的惨案！★为什么没人制裁百度李彥宏？制裁莆田系黑医疗？★为什么耳鼻喉科明知道手术导致20%以上的人成为空鼻症，却不禁止手术？不提示风险？★为什么空鼻症还不上教材和疾病目录？★为什么说切除鼻甲没事的耳鼻喉科专家，自己不切除鼻甲试试呢？</td><td style=text-align:center>2017-03-29 16:02:48</td><td style=text-align:center;>一波秋水2017</td></tr><tr><td style=text-align:center;>387</td><td style=text-align:center;>新闻</td><td style=text-align:center; >你看看这是什么广告 @百度@社会维权曝光@央视新闻 </td><td style=text-align:center>2017-03-30 10:52:38</td><td style=text-align:center;>宏海洋家政</td></tr><tr><td style=text-align:center;>396</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【涉黄APP骗局一年收入7亿】“一个色情诱导付费的APP，网上有源码，2000块一套，再做一套宣传图片，顶多500块”，然后通过网络广告联盟在大量盗版小说网站、浏览器推送新闻页面、QQ群、百度贴吧等等流量较大的地区投放色情图片，“用户点击图片就会下载APP，APP上要求用户付费观看”。每月600多万下载  </td><td style=text-align:center>2017-03-31 11:00:12</td><td style=text-align:center;>升值贷</td></tr><tr><td style=text-align:center;>399</td><td style=text-align:center;>新闻</td><td style=text-align:center; >?不知道为什么百度上还给这么没有诚信的服务商家提供广告服务。今天上午百度询找通侧所服务，看到第一个公司鸿坛环卫就拔通电话，问通侧所，马桶式、楼层三楼多少钱，说只要200元，可以一来看下就要涨价、要400元，想下、来的来了，而且通侧所很恶心的事情也就同意了！一会儿就可以下水，可是通水很 </td><td style=text-align:center>2017-03-31 20:56:50</td><td style=text-align:center;>华君主</td></tr><tr><td style=text-align:center;>403</td><td style=text-align:center;>新闻</td><td style=text-align:center; >真实的诈骗案件，现在他们公司还在百度做推广，从银保零元购车险隶属上海从银金融信息服务有限公司，大家帮忙转发下！谢谢</td><td style=text-align:center>2017-04-01 22:01:03</td><td style=text-align:center;>生活如此俏比</td></tr><tr><td style=text-align:center;>420</td><td style=text-align:center;>新闻</td><td style=text-align:center; >None</td><td style=text-align:center>None</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>423</td><td style=text-align:center;>新闻</td><td style=text-align:center; >None</td><td style=text-align:center>None</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>425</td><td style=text-align:center;>新闻</td><td style=text-align:center; >27岁鼻炎患者术后坠亡 百度因医院竞价排名被起诉 </td><td style=text-align:center>2017-04-05 07:02:03</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>427</td><td style=text-align:center;>新闻</td><td style=text-align:center; >百度推广假药就没人能管？搜索  风湿 类风湿  腰椎间盘突出 等  出来的前几条检索 都是在百度花钱 推广的假药   “龙布峰针贴”  还有用轮胎公司推广的。@百度  @央视新闻 @CCTV焦点访谈 </td><td style=text-align:center>2017-04-06 13:32:10</td><td style=text-align:center;>茶乡湄潭</td></tr><tr><td style=text-align:center;>429</td><td style=text-align:center;>新闻</td><td style=text-align:center; >None</td><td style=text-align:center>None</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>431</td><td style=text-align:center;>新闻</td><td style=text-align:center; >None</td><td style=text-align:center>None</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>435</td><td style=text-align:center;>新闻</td><td style=text-align:center; >现在百度推广这么玩的？可以吧别人公司的名字作为自己公司推广的关键词？投诉举报还一直没用？ps:红框里标出来的内容并不是我们老鹰画室哦~   @百度 @百度 </td><td style=text-align:center>2017-04-10 11:08:42</td><td style=text-align:center;>杭州老鹰画室</td></tr><tr><td style=text-align:center;>437</td><td style=text-align:center;>新闻</td><td style=text-align:center; >胆够大！坑人主意打到公安部交管局软件上！
+百度推广如何坑行外人:第一张图:用你的手机百度搜索:交管12123，百度第一个搜索居然是打着“交管12123”的文字链接，如果你直接点了下载，那么你的手机将安装图二中的右下角“we”图样软件，若你之前不知道正版“交管12123”长啥样，那就中招了，继续进去处 </td><td style=text-align:center>2017-04-10 19:57:14</td><td style=text-align:center;>裁判者v</td></tr><tr><td style=text-align:center;>443</td><td style=text-align:center;>新闻</td><td style=text-align:center; >同一个公司注册多个网站用于百度推广，该公司根本没有危险化学品经营许可证。 且网站名称只是化工原料批发。投诉到百度也仅仅是受理，无下文。广告仍然时刻在线。该网站在百度口碑被多家公司举报，百度无动于衷。@百度推广@CCTV315@中国之声。
+百度为了圈钱，可以不审核资质，不管公司，不管产品。还想 </td><td style=text-align:center>2017-04-12 09:52:13</td><td style=text-align:center;>天月云飞</td></tr><tr><td style=text-align:center;>453</td><td style=text-align:center;>新闻</td><td style=text-align:center; >@12315网络维权  @深圳公安  @央视新闻  深圳警方已经确定了美极客是传销组织，但是百度对此还是能够进行商业付费推广的业务，推广的产品还涉及到夸大的医疗用品之前已经举报过多次，他们一直说在处理，但是观察了很多天，还是继续他们收费的商业推广行为，我在这里肯定央视电视台和12315一起揭露百度 </td><td style=text-align:center>2017-04-19 10:00:14</td><td style=text-align:center;>国服第一青钢影卡尔蜜</td></tr><tr><td style=text-align:center;>454</td><td style=text-align:center;>新闻</td><td style=text-align:center; >【一妆被假冒的日常】很无奈，”一妆“两个字随时都在被很多无良同行冒用，虽然我们有品牌商标注册，但冒充一妆的同行多到我们都告不过来！！今天用百度搜索”成都一妆“，总共三个广告位，居然两个都是同行假冒的广告！一妆现有官网为：yzvogue.com和yzvogue.net，大家搜索关键词时只要出现图一【广告 </td><td style=text-align:center>2017-04-19 12:29:37</td><td style=text-align:center;>一妆时尚慧子</td></tr><tr><td style=text-align:center;>455</td><td style=text-align:center;>新闻</td><td style=text-align:center; >None</td><td style=text-align:center>None</td><td style=text-align:center;>None</td></tr><tr><td style=text-align:center;>457</td><td style=text-align:center;>新闻</td><td style=text-align:center; >?//@天地野保:声讨百度公司死不悔改长期推广危险捕猎机！！//@中国互联网举报中心@寵愛苗@时尚时事品牌-张辛可@让候鸟飞@曹菡艾@范成波NGO@环保汪昭华@环境保护主义者联盟 @节水刘大哥@微言环保@爱心牛妈@动物小说作家马文秋@中国政府网@哲学癖小白@施怀基@作家米修</td><td style=text-align:center>2017-04-20 16:15:58</td><td style=text-align:center;>寵愛苗</td></tr><tr><td style=text-align:center;>459</td><td style=text-align:center;>新闻</td><td style=text-align:center; >发表了博文《深圳蓓姬婚纱摄影有限公司-重庆兰蔻摄影长期使用同行业名字进行推广可恶》重庆兰蔻摄影长期使用我影楼（重庆黑马摄影/黑马摄影）进行百度等推广，误导消费者和给我影楼带来极大的损失和痛苦。恳请各位http://t.cn/RXN2mng </td><td style=text-align:center>2017-04-22 17:16:05</td><td style=text-align:center;>脱口而出大串</td></tr></tbody></table></div>
+</body>
+</html>
