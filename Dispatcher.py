@@ -3,6 +3,7 @@ import logging
 import importlib
 import json
 import traceback
+import os
 
 from DispatcherConfig import DispatchMap, contentMap
 
@@ -27,6 +28,14 @@ class Dispatcher(object):
                                 for value in tag["values"]:
                                     if value in DispatchMap:
                                         for processor in DispatchMap[value]:
+                                            if 'limit' in os.environ:
+                                                found = False
+                                                for limitUnit in os.environ['limit']:
+                                                    if processor == limitUnit:
+                                                        found = True
+                                                if found == False:
+                                                    continue
+
                                             try:
                                                 moduleName = "handler.%s" % processor
                                                 m1 = None

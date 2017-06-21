@@ -8,6 +8,6 @@ def mail(to, fromuser, cc, subject, content):
     ret, data = commands.getstatusoutput(string)
     with open("mail.html", "w") as f:
         f.write(content)
-    if ret == False:
-        logging.warning("mail failed string[%s] ret[%s]" % (string, data))
-    print data
+    #if ret == False:
+    #    logging.warning("mail failed string[%s] ret[%s]" % (string, data))
+    #print data

@@ -11,11 +11,14 @@ from Dispatcher import Dispatcher
 
 if __name__ == "__main__":
 
-    if len(sys.argv) > 1 and sys.argv[1] == 'debug':
-        os.environ['debug'] = True
+    # os.environ['debug'] = True
+    if len(sys.argv) > 1:
+        os.environ['limit'] = sys.argv[1:]
+        print "limit module %s" % os.environ['limit']
     DB_CLUSTER = 'cae03'
     log.init_log("./log/cronjob")
     dbReader = DbReader()
     date, data = dbReader.dataReader();
     dispatcher = Dispatcher(data)
     dispatcher.process()
+    dbReader.setCheckPoint(date);

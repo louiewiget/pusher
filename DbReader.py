@@ -45,8 +45,8 @@ class DbReader(object):
         sql = "select %s from stella_public_info_record" \
               " where update_time > '%s' and update_time <= '%s'" % \
               (",".join(varList) ,updateTime, endTime)
+        readData=[]
         ret, data = self.db.query(sql)
-        readData = []
         if ret:
             for one in data:
                 oneLen = len(one)
@@ -59,6 +59,7 @@ class DbReader(object):
                             if RecordEntity.validation[col] == "json":
                                 data = json.loads(data, encoding='utf-8')
                         setattr(record, col, data)
+
                     except Exception as e:
                         logging.warning(e)
                 readData.append(record)

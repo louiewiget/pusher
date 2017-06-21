@@ -34,7 +34,8 @@ class JsonLocator(object):
         retList = []
         for path in pathList:
             pathTokens = path.split(".")
-            retList.append(JsonLocator.findElementByTokenList(jsonObj, pathTokens))
+            retContent = JsonLocator.findElementByTokenList(jsonObj, pathTokens)
+            retList.append(retContent if retContent is not None else "")
         return retList
 
     @staticmethod

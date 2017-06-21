@@ -5,8 +5,7 @@ from Processor import Processor
 class RegularToPR(Processor):
 
     def omit(self, entity, contentMap):
-        pass
-
-
+        return
+        
     def finish(self):
         pass
