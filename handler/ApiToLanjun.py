@@ -3,7 +3,7 @@
 import os
 import logging
 import json
-import chardet
+import requests
 import sys
 
 reload(sys)
@@ -14,11 +14,6 @@ from Processor import *
 
 class ApiToLanjun(Processor):
 
-    # id 类型 标题  发布时间 发布主体
-    relationship = ["id", "类型","标题","发布时间", "发布主体", "url"]
-    mailUnits = '''<tr><td>%s</td><td>%s</td><td><a href='%s'>%s</a></td><td>%s</td><td>%s</td></tr>\r\n'''
-    online_vars = {"cc":"", "from":"", "to":""}
-    debug_vars = {"cc":"", "from":"", "to":""}
 
     typeMap = {"WEIBO": "微博", "NEWS":"新闻", "TIEBA":"贴吧"}
 
@@ -36,34 +31,29 @@ class ApiToLanjun(Processor):
     def finish(self):
         pass
     def omit(self, entity):
-        product = ""
         riskType = ""
-        industry = ""
-        hotLevel = ""
-        trend = ""
-        title = ""
-        url = ""
-        content = ""
+        companyName = ""
+
         source = entity.getType()
 
-        productValues = JsonLocator.JsonLocator.extractTags(config, "产品线")
         riskTypeValues = JsonLocator.JsonLocator.extractTags(config, "风险类型")
+        companyNameValues = JsonLocator.JsonLocator.extractTags(config, "涉及客户")
 
-        if len(productValues) > 0:
-            product = productValues[0].encode('utf-8')
+        if len(companyNameValues) > 0:
+            companyName = companyNameValues[0].encode('utf-8')
         if len(riskTypeValues) > 0:
             riskType = riskTypeValues[0].encode('utf-8')
 
-        if entity.getType() in MailToRisk.contentMap:
-            typeName, descList = self.splitPattern(MailToRisk.contentMap[entity.getType()])
+        if entity.getType() in ApiToLanjun.contentMap:
+            typeName, descList = self.splitPattern(ApiToLanjun.contentMap[entity.getType()])
             source = typeName
             contents = JsonLocator.JsonLocator.extractElement(entity.getContent(), descList)
             for one in contents:
                 if "key" in one and "value" in one:
-                    if one["key"] == "title" and one["value"] != "":
+                    if one["key"] == "url" and one["value"] != "":
                         if title == "":
                             title = one['value']
-                    elif one["key"] == "url" and one["value"] != "":
+                    elif one["key"] == "" and one["value"] != "":
                         if url == "":
                             url = one["value"]
                     elif one["key"] == "content" and one["value"] != "":
@@ -73,12 +63,11 @@ class ApiToLanjun(Processor):
                         source = one["value"]
 
         # 信息丰富程度条件判断
-        if title == "":
+        if companyNameValues == "":
             logging.warn("could not find title for record [%s]" % one)
             return
-            
+
         # 此处处理发信息逻辑
-        with open ("tpl/singleMail.tpl") as f:
-            data = f.read()
-            data = data.replace("${hotLevel}", hotLevel).replace("${trend}", trend)
-            MailUtils.mail("guminli@baidu.com", "", "", "【标题】风险标记报送 %s" % title , data.replace("${mailContent}", mailHtml))
+        postData = {"compname":"", "url":"http://baidu.com", "type":"博彩", "optime":"2017-06-20 00:00:00"}
+        res = requests.post('http://cp01-chengxin-ucard00.epc.baidu.com:8084/yuqingtag/getYuqingData.php', data = postData)
+        print res.content

@@ -3,7 +3,6 @@
 import os
 import logging
 import json
-import chardet
 import sys
 
 reload(sys)
@@ -23,11 +22,11 @@ class SingleMail(Processor):
     typeMap = {"WEIBO": "微博", "NEWS":"新闻", "TIEBA":"贴吧"}
 
     contentMap = {}
-    contentMap['NEWS'] = ["新闻=type", "标题=contents.0.title", "发布时间=contents.0.publish_time", "发布主体=contents.0.author", "url=contents.0.url", "content=todo"]
-    contentMap["ZHIHU"] = ["知乎=type", "标题=question_title", "发布时间=update_time", "发布主体=random","url=url","content=todo"]
-    contentMap["WEIBO"] = ["微博=type", "标题=content", "发布时间=time", "发布主体=username", "url=url","content=todo"]
-    contentMap["TIEBA"] = ["贴吧=type", "标题=thread_title", "发布时间=thread_publish_time", "发布主体=thread_username", "url=url","content=todo"]
-    contentMap["MANUAL"] = ["MANUAL=type", "source=real_type", "标题=title", "发布时间=publish_time", "发布主体=publisher", "url=url", "content=todo"]
+    contentMap['NEWS'] = ["新闻=type", "标题=contents.0.title", "发布时间=contents.0.publish_time", "发布主体=contents.0.author", "url=contents.0.url"]
+    contentMap["ZHIHU"] = ["知乎=type", "标题=question_title", "发布时间=update_time", "发布主体=random","url=url"]
+    contentMap["WEIBO"] = ["微博=type", "标题=content", "发布时间=time", "发布主体=username", "url=url"]
+    contentMap["TIEBA"] = ["贴吧=type", "标题=thread_title", "发布时间=thread_publish_time", "发布主体=thread_username", "url=url"]
+    contentMap["MANUAL"] = ["MANUAL=type", "source=real_type", "标题=title", "发布时间=publish_time", "发布主体=publisher", "url=url"]
 
 
     def __init__(self):
@@ -45,17 +44,34 @@ class SingleMail(Processor):
         url = ""
         content = ""
         source = entity.getType()
+        config = entity.getConfig()
 
         productValues = JsonLocator.JsonLocator.extractTags(config, "产品线")
         riskTypeValues = JsonLocator.JsonLocator.extractTags(config, "风险类型")
+        industryValues = JsonLocator.JsonLocator.extractTags(config, "行业")
+        hotLevelValues = JsonLocator.JsonLocator.extractTags(config, "风险等级")
+        trendValues = JsonLocator.JsonLocator.extractTags(config, "传播趋势")
+        titleValues = JsonLocator.JsonLocator.extractTags(config, "编辑标题")
+        urlValues = JsonLocator.JsonLocator.extractTags(config, "编辑URL")
 
         if len(productValues) > 0:
             product = productValues[0].encode('utf-8')
         if len(riskTypeValues) > 0:
             riskType = riskTypeValues[0].encode('utf-8')
+        if len(industryValues) > 0:
+            industry = industryValues[0].encode('utf-8')
+        if len(hotLevelValues) > 0:
+            hotLevel = hotLevelValues[0].encode('utf-8')
+        if len(trendValues) > 0:
+            trend = trendValues[0].encode('utf-8')
+        if len(titleValues) > 0:
+            title = titleValues[0].encode('utf-8')
+        if len(urlValues) > 0:
+            url = urlValues[0].encode('utf-8')
 
-        if entity.getType() in MailToRisk.contentMap:
-            typeName, descList = self.splitPattern(MailToRisk.contentMap[entity.getType()])
+
+        if entity.getType() in SingleMail.contentMap:
+            typeName, descList = self.splitPattern(SingleMail.contentMap[entity.getType()])
             source = typeName
             contents = JsonLocator.JsonLocator.extractElement(entity.getContent(), descList)
             for one in contents:
@@ -79,5 +95,5 @@ class SingleMail(Processor):
 
         with open ("tpl/singleMail.tpl") as f:
             data = f.read()
-            data = data.replace("${hotLevel}", hotLevel).replace("${trend}", trend)
-            MailUtils.mail("guminli@baidu.com", "", "", "【标题】风险标记报送 %s" % title , data.replace("${mailContent}", mailHtml))
+            data = data.replace("${hotLevel}", hotLevel).replace("${trend}", trend).replace("${source}").replace("${industry}").replace("${riskType}").replace("${product}").replace("${companyName}").replace("${serachkey}")
+            MailUtils.mail("cae-yq@baidu.com", "guminli@baidu.com", "wuwenxin@baidu.com", "【商业舆情】 %s" % title , data)

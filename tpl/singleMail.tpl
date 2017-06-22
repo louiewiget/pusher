@@ -10,7 +10,7 @@
 <tr>
     <th style='text-align:center;' >热度等级：${hotLevel}</th>
     <th style='text-align:center;' >传播趋势：${trend}</th>
-    <th style='text-align:center;' >首发平台：${source}</th>
+    <th style='text-align:center;' >信息来源：${source}</th>
 
 </tr>
 </thead>
@@ -21,8 +21,8 @@
         <td style='text-align:center;' >产品线：${product}</td>
     </tr>
     <tr>
-        <td style='text-align:center;' >涉及客户：${industry}</td>
-        <td style='text-align:center;' >搜索关键词：${riskType}</td>
+        <td style='text-align:center;' >涉及客户：${companyName}</td>
+        <td style='text-align:center;' >搜索关键词：${key}</td>
         <td style='text-align:center;' ></td>
     </tr>
 </tbody>
