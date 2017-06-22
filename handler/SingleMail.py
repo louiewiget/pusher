@@ -22,11 +22,11 @@ class SingleMail(Processor):
     typeMap = {"WEIBO": "微博", "NEWS":"新闻", "TIEBA":"贴吧"}
 
     contentMap = {}
-    contentMap['NEWS'] = ["新闻=type", "标题=contents.0.title", "发布时间=contents.0.publish_time", "发布主体=contents.0.author", "url=contents.0.url"]
-    contentMap["ZHIHU"] = ["知乎=type", "标题=question_title", "发布时间=update_time", "发布主体=random","url=url"]
-    contentMap["WEIBO"] = ["微博=type", "标题=content", "发布时间=time", "发布主体=username", "url=url"]
-    contentMap["TIEBA"] = ["贴吧=type", "标题=thread_title", "发布时间=thread_publish_time", "发布主体=thread_username", "url=url"]
-    contentMap["MANUAL"] = ["MANUAL=type", "source=real_type", "标题=title", "发布时间=publish_time", "发布主体=publisher", "url=url"]
+    contentMap['NEWS'] = ["新闻=type", "title=contents.0.title",  "url=contents.0.url"]
+    contentMap["ZHIHU"] = ["知乎=type", "title=question_title", "url=url"]
+    contentMap["WEIBO"] = ["微博=type", "title=content",  "url=url"]
+    contentMap["TIEBA"] = ["贴吧=type", "title=thread_title", "url=url"]
+    contentMap["MANUAL"] = ["MANUAL=type", "source=real_type", "title=title", "url=url"]
 
 
     def __init__(self):
@@ -43,6 +43,8 @@ class SingleMail(Processor):
         title = ""
         url = ""
         content = ""
+        searchKey = ""
+        companyName = ""
         source = entity.getType()
         config = entity.getConfig()
 
@@ -52,7 +54,7 @@ class SingleMail(Processor):
         hotLevelValues = JsonLocator.JsonLocator.extractTags(config, "风险等级")
         trendValues = JsonLocator.JsonLocator.extractTags(config, "传播趋势")
         titleValues = JsonLocator.JsonLocator.extractTags(config, "编辑标题")
-        urlValues = JsonLocator.JsonLocator.extractTags(config, "编辑URL")
+        urlValues = JsonLocator.JsonLocator.extractTags(config, "编辑链接")
 
         if len(productValues) > 0:
             product = productValues[0].encode('utf-8')
@@ -69,11 +71,11 @@ class SingleMail(Processor):
         if len(urlValues) > 0:
             url = urlValues[0].encode('utf-8')
 
-
         if entity.getType() in SingleMail.contentMap:
             typeName, descList = self.splitPattern(SingleMail.contentMap[entity.getType()])
             source = typeName
             contents = JsonLocator.JsonLocator.extractElement(entity.getContent(), descList)
+
             for one in contents:
                 if "key" in one and "value" in one:
                     if one["key"] == "title" and one["value"] != "":
@@ -90,10 +92,12 @@ class SingleMail(Processor):
 
         # 信息丰富程度条件判断
         if title == "":
-            logging.warn("could not find title for record [%s]" % one)
+            logging.warn("could not find title for record [%s]" % entity.getId())
             return
-
         with open ("tpl/singleMail.tpl") as f:
             data = f.read()
-            data = data.replace("${hotLevel}", hotLevel).replace("${trend}", trend).replace("${source}").replace("${industry}").replace("${riskType}").replace("${product}").replace("${companyName}").replace("${serachkey}")
-            MailUtils.mail("cae-yq@baidu.com", "guminli@baidu.com", "wuwenxin@baidu.com", "【商业舆情】 %s" % title , data)
+            data = data.replace("${hotLevel}", hotLevel).replace("${trend}", trend).replace("${source}", source)\
+                   .replace("${industry}", industry).replace("${riskType}", riskType).replace("${product}", product)\
+                   .replace("${title}", title).replace("${url}", url).replace("${content}", content)\
+                   .replace("${companyName}", companyName).replace("${searchKey}", searchKey)
+            MailUtils.mail("guminli@baidu.com,liuguodong01@baidu.com", "guminli@baidu.com",  "guminli@baidu.com", "【商业舆情】 %s" % title , data)

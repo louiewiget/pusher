@@ -33,6 +33,7 @@ class ApiToLanjun(Processor):
     def omit(self, entity):
         riskType = ""
         companyName = ""
+        publish_time = ""
 
         source = entity.getType()
 
@@ -51,9 +52,6 @@ class ApiToLanjun(Processor):
             for one in contents:
                 if "key" in one and "value" in one:
                     if one["key"] == "url" and one["value"] != "":
-                        if title == "":
-                            title = one['value']
-                    elif one["key"] == "" and one["value"] != "":
                         if url == "":
                             url = one["value"]
                     elif one["key"] == "content" and one["value"] != "":
@@ -63,11 +61,11 @@ class ApiToLanjun(Processor):
                         source = one["value"]
 
         # 信息丰富程度条件判断
-        if companyNameValues == "":
+        if companyName == "":
             logging.warn("could not find title for record [%s]" % one)
             return
 
         # 此处处理发信息逻辑
-        postData = {"compname":"", "url":"http://baidu.com", "type":"博彩", "optime":"2017-06-20 00:00:00"}
+        postData = {"compname":"%s" % companyName, "url":"%s" % companyName, "type":"%s" % riskType, "optime":"%s" % publish_time}
         res = requests.post('http://cp01-chengxin-ucard00.epc.baidu.com:8084/yuqingtag/getYuqingData.php', data = postData)
         print res.content
