@@ -16,7 +16,7 @@ if __name__ == "__main__":
         os.environ['limit'] = sys.argv[1]
         print "limit module %s" % os.environ['limit']
     else:
-        print "usage: main.py processor\ncurrent available processor[MailToRisk, PushToHi]"
+        print "usage: main.py processor\ncurrent available processor[SingleMail, ApiToLanjun, PushToHi]"
         sys.exit(-1)
     DB_CLUSTER = 'cae03'
     log.init_log("./log/cronjob")

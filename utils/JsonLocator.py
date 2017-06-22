@@ -58,3 +58,11 @@ class JsonLocator(object):
             else:
                 return None
         return contentObj.encode("utf-8")
+
+    @staticmethod
+    def extractTags(configContent, name):
+        for one in configContent['tags']:
+            if "name" in one and one["name"] == name:
+                if "values" in one:
+                    return one["values"]
+        return ""
