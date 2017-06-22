@@ -4,8 +4,9 @@ import importlib
 import json
 import traceback
 import os
+import sys
 
-from DispatcherConfig import DispatchMap, contentMap
+from DispatcherConfig import DispatchMap
 
 
 
@@ -28,14 +29,9 @@ class Dispatcher(object):
                                 for value in tag["values"]:
                                     if value in DispatchMap:
                                         for processor in DispatchMap[value]:
-                                            if 'limit' in os.environ:
-                                                found = False
-                                                for limitUnit in os.environ['limit']:
-                                                    if processor == limitUnit:
-                                                        found = True
-                                                if found == False:
-                                                    continue
-
+                                            if os.environ['limit'] != processor:
+                                                logging.info("processor[%s] is not allow. current[%s] " % (processor, os.environ['limit']))
+                                                continue
                                             try:
                                                 moduleName = "handler.%s" % processor
                                                 m1 = None
@@ -50,7 +46,7 @@ class Dispatcher(object):
                                                 else:
                                                     instance = className()
                                                     instanceDict[className] = instance
-                                                ret = instance.omit(one, contentMap)
+                                                ret = instance.omit(one)
 
                                             except Exception as e:
                                                 logging.warning("no handler exists[%s][%s][%s]" % (processor, e, traceback.format_exc()));

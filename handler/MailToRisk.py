@@ -22,6 +22,14 @@ class MailToRisk(Processor):
 
     typeMap = {"WEIBO": "微博", "NEWS":"新闻", "TIEBA":"贴吧"}
 
+    contentMap = {}
+    contentMap['NEWS'] = ["新闻=type", "标题=contents.0.title", "发布时间=contents.0.publish_time", "发布主体=contents.0.author", "url=contents.0.url"]
+    contentMap["ZHIHU"] = ["知乎=type", "标题=question_title", "发布时间=update_time", "发布主体=random","url=url"]
+    contentMap["WEIBO"] = ["微博=type", "标题=content", "发布时间=time", "发布主体=username", "url=url"]
+    contentMap["TIEBA"] = ["贴吧=type", "标题=thread_title", "发布时间=thread_publish_time", "发布主体=thread_username", "url=url"]
+    contentMap["MANUAL"] = ["MANUAL=type", "标题=title", "发布时间=publish_time", "发布主体=publisher", "url=url"]
+
+
     def __init__(self):
         if "debug" in os.environ and os.environ["debug"]:
             self.mailVals = MailToRisk.debug_vars
@@ -39,9 +47,9 @@ class MailToRisk(Processor):
             data = f.read()
             MailUtils.mail("guminli@baidu.com,liuguodong01@baidu.com", "", "", "风险标记报送", data.replace("${mailContent}", mailHtml))
 
-    def omit(self, entity, contentMap):
-        if entity.getType() in contentMap:
-            typeName, descList = self.splitPattern(contentMap[entity.getType()])
+    def omit(self, entity):
+        if entity.getType() in MailToRisk.contentMap:
+            typeName, descList = self.splitPattern(MailToRisk.contentMap[entity.getType()])
             contents = JsonLocator.JsonLocator.extractElement(entity.getContent(), descList)
             contents.insert(0, {"key": "类型", "value": typeName})
             contents.insert(0, {"key": "id", "value":entity.getId()})

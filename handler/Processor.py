@@ -17,7 +17,7 @@ class Processor(object):
 
 
     @abstractmethod
-    def omit(self, entity, contentMap):
+    def omit(self, entity):
         pass
 
     @abstractmethod
