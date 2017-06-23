@@ -7,7 +7,7 @@ def mail(to, fromuser, cc, subject, content):
     with open("mail.html", "w") as f:
         f.write(content)
         f.flush()
-    string = "mail -s \"`echo  \"%s\nContent-Type: text/html;charset=utf-8\"`\"  \"%s\"  < mail.html" % (subject.replace("\"", "\'"), to)
+    string = "mail -s \"`echo  \"%s\nContent-Type: text/html;charset=utf-8\"`\"  \"%s\"  < mail.html" % (subject.replace("\"", "\'").replace("\n", ""), to)
     ret, data = commands.getstatusoutput(string)
 
     #if ret == False:

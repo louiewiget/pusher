@@ -100,4 +100,9 @@ class SingleMail(Processor):
                    .replace("${industry}", industry).replace("${riskType}", riskType).replace("${product}", product)\
                    .replace("${title}", title).replace("${url}", url).replace("${content}", content)\
                    .replace("${companyName}", companyName).replace("${searchKey}", searchKey)
-            MailUtils.mail("guminli@baidu.com,liuguodong01@baidu.com", "guminli@baidu.com",  "guminli@baidu.com", "【商业舆情】 %s" % title , data)
+            # 此处进行标题截断处理，最多显示 20 个字符 + "..."
+            titleUnicode = title.decode("utf-8")
+            if len(titleUnicode) > 20:
+                titleUnicode = titleUnicode[:20] + "..."
+            title = titleUnicode.encode("utf-8")
+            MailUtils.mail("guminli@baidu.com", "guminli@baidu.com",  "guminli@baidu.com", "【商业舆情】 %s" % title , data)

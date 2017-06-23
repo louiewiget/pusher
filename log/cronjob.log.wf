@@ -4468,3 +4468,8 @@ WARNING: 06-22 22:31:48: PushToHi.py:196 * 140735854494656 send yixiu msg failed
 "/><url ref="http://baidu.com"/><text c="
 3. 【家用电器 - 虚假欺诈】是否是否受到了发生的
 "/><url ref="http://baidu.com"/></msg>]
+WARNING: 06-23 08:57:32: SingleMail.py:95 * 140735854494656 could not find title for record [420]
+WARNING: 06-23 08:57:32: SingleMail.py:95 * 140735854494656 could not find title for record [423]
+WARNING: 06-23 08:57:32: SingleMail.py:95 * 140735854494656 could not find title for record [429]
+WARNING: 06-23 08:57:32: SingleMail.py:95 * 140735854494656 could not find title for record [431]
+WARNING: 06-23 08:57:32: SingleMail.py:95 * 140735854494656 could not find title for record [462]
