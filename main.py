@@ -24,4 +24,4 @@ if __name__ == "__main__":
     date, data = dbReader.dataReader();
     dispatcher = Dispatcher(data)
     dispatcher.process()
-    # dbReader.setCheckPoint(date);
+    dbReader.setCheckPoint(date);
