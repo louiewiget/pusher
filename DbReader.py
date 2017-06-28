@@ -10,7 +10,6 @@ from RecordEntity import RecordEntity
 import json
 
 
-
 class DbReader(object):
 
     UPDATE_KEY = "update_key"
